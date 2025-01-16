@@ -1,5 +1,7 @@
+from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.tree import DecisionTreeClassifier
+
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.tree import plot_tree
 import matplotlib.pyplot as plt
@@ -40,8 +42,12 @@ dados = [
 
 resposta = [1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1] # Respostas(1=aprovado 0=N/aprovado)
 
-# Divisao em tereino e teste (80%/20%)
-x_treino, x_teste, y_treino, y_teste = train_test_split(dados, resposta, test_size=0.2, random_state=42)
+# Normalizando os dados
+scaler = MinMaxScaler()
+dados_normalizados = scaler.fit_transform(dados)
+
+# Divisao em treino e teste (80%/20%)
+x_treino, x_teste, y_treino, y_teste = train_test_split(dados_normalizados, resposta, test_size=0.2, random_state=42)
 
 # Configurando os hiperparâmetros a testar
 parametros = {'max_depth': [3, 5, 7], 'min_samples_split': [2, 5, 10]}
@@ -82,17 +88,15 @@ resultados = melhor_modelo.predict(candidatos)
 for i, resultado in enumerate(resultados):
     print(f"Candidato {i + 1}: {'Aprovado' if resultado == 1 else 'Rejeitado'}")
 
-'''
 # Grafico
-plt.figure(figsize=(12, 8))  # Define o tamanho do gráfico
+plt.figure(figsize=(8, 4))  # Define o tamanho do gráfico
 plot_tree(
-    modelo,  # Modelo treinado
+    melhor_modelo,  # Modelo treinado
     feature_names=["Salário", "Depósito Mensal", "Histórico", "Dependentes", "Valor Solicitado"],  # Nomes das variáveis
     class_names=["Rejeitado", "Aprovado"],  # Classes possíveis
     filled=True  # Preenche os nós com cores baseadas na classe predominante
 )
 plt.show()
-'''
 print('--------------------')
 
 # Previsões e valores reais
