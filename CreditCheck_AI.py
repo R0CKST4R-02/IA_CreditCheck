@@ -8,39 +8,51 @@ import matplotlib.pyplot as plt
 
 # Dados fictícios: [salário, depósito mensal, histórico (0=limpo, 1=atrasado), dependentes, valor solicitado]
 dados = [
-    [5000, 2000, 0, 2, 10000],  # Aprovado
-    [3000, 1500, 1, 3, 20000],  # Rejeitado
-    [8000, 3000, 0, 1, 5000],   # Aprovado
-    [2500, 2500, 1, 2, 15000],  # Rejeitado
-    [6000, 2500, 0, 0, 20000],  # Aprovado
-    [10000, 1000, 0, 4, 2500],  # Aprovado
-    [1000, 0, 0, 2, 5000],      # Rejeitado
-    [0, 5000, 0, 0, 10000],     # Rejeitado
-    [1000, 1000, 0, 0, 5000],     # Rejeitado
-    [1500, 100, 0, 0, 10],       # Aprovado
-    [1000, 2000, 0, 2, 500],  # Aprovado
-    [3000, 9000, 1, 5, 1000],  # Rejeitado
-    [5000, 2000, 0, 1, 8000],   # Aprovado
-    [2500, 2000, 1, 5, 15000],  # Rejeitado
-    [6000, 2500, 0, 0, 2500],  # Aprovado
-    [10000, 5000, 1, 5, 2500],  # Aprovado
-    [1000, 0, 0, 2, 5000],      # Rejeitado
-    [0, 5000, 0, 0, 10000],     # Rejeitado
-    [1000, 200, 0, 1, 9000],     # Rejeitado
-    [1500, 1500, 0, 0, 100],       # Aprovado
-    [0, 100, 0, 0, 700],  # Rejeitado
-    [0, 100, 0, 0, 700],      # Rejeitado
-    [1000, 100, 0, 5, 700],     # Rejeitado
-    [1000, 100, 0, 5, 700],     # Rejeitado
-    [5000, 2500, 1, 0, 2500],       # Rejeitado
-    [5000, 2500, 0, 0, 2500],  # Aprovado
-    [200, 100, 0, 0, 50],      # Aprovado
-    [5000, 1000, 0, 5, 100],     # Aprovado
-    [1000, 3000, 0, 3, 100],     # Aprovado
-    [5000, 500, 1, 0, 50]       # Aprovado
+    [5000, 2500, 0, 1, 15000],  # Aprovado
+    [5000, 2500, 1, 0, 15000],  # Rejeitado
+    [5000, 2500, 0, 1, 15000],   # Aprovado
+    [5000, 2500, 1, 2, 10000],  # Rejeitado
+    [5000, 2500, 0, 3, 10000],  # Aprovado
+    [5000, 2500, 1, 0, 10000],  # Rejeitado
+    #///////////////////////////
+    [5000, 5000, 0, 3, 5000],  # Aprovado
+    [5000, 5000, 1, 0, 5000],  # Rejeitado
+    [5000, 5000, 1, 5, 5000],   # Aprovado
+    [5000, 5000, 1, 2, 1000],  # Rejeitado
+    [5000, 5000, 0, 5, 1000],  # Aprovado
+    [5000, 5000, 1, 3, 1000],  # Rejeitado
+    #///////////////////////////
+    [1000, 2500, 0, 0, 5000],  # Aprovado
+    [1000, 2500, 1, 0, 5000],  # Rejeitado
+    [1000, 2500, 0, 1, 5000],   # Aprovado
+    [1000, 2500, 1, 2, 1000],  # Rejeitado
+    [1000, 2500, 0, 0, 1000],  # Aprovado
+    [1000, 2500, 1, 0, 1000],  # Rejeitado
+    #///////////////////////////
+    [0, 500, 0, 1, 1000],  # Aprovado
+    [0, 500, 1, 0, 1000],  # Rejeitado
+    [0, 500, 0, 1, 1000],   # Aprovado
+    [500, 2500, 1, 2, 5000],  # Rejeitado
+    [500, 2500, 1, 0, 1000],  # Aprovado
+    [500, 2500, 1, 0, 5000],  # Rejeitado
+    #///////////////////////////
+    [5000, 500, 0, 0, 5000],  # Aprovado
+    [5000, 500, 1, 1, 5000],  # Rejeitado
+    [5000, 500, 0, 4, 5000],   # Aprovado
+    [5000, 2500, 1, 5, 500],  # Rejeitado
+    [5000, 2500, 1, 0, 500],  # Aprovado
+    [5000, 2500, 0, 5, 500],  # Rejeitado
+    #///////////////////////////
+    [5000, 10000, 0, 4, 1000],  # Aprovado
+    [5000, 10000, 1, 0, 1000],  # Rejeitado
+    [5000, 10000, 0, 3, 1000],   # Aprovado
+    [5000, 10000, 1, 3, 500],  # Rejeitado
+    [5000, 10000, 0, 3, 500],  # Aprovado
+    [5000, 10000, 1, 5, 500],  # Rejeitado
+     
 ]
 
-resposta = [1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1] # Respostas(1=aprovado 0=N/aprovado)
+resposta = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0,] # Respostas(1=aprovado 0=N/aprovado)
 
 # Normalizando os dados
 scaler = MinMaxScaler()
@@ -68,7 +80,8 @@ precisao = accuracy_score(y_teste, previsoes)
 print("Precisão com o melhor modelo:", precisao)
 
 
-# Dados de vários candidatos
+# Dados de vários candidatos [salário, depósito mensal, histórico (0=limpo, 1=atrasado), dependentes, valor solicitado
+
 candidatos = [
     [4000, 1500, 1, 2, 8000],  # Candidato 1
     [7000, 3000, 0, 1, 10000],  # Candidato 2
@@ -78,7 +91,8 @@ candidatos = [
     [0, 100, 0, 0, 700],    # Candidato 6
     [5000, 5000, 1, 10, 100000],    # Candidato 7
     [1000, 500, 1, 0, 50],  # Candidato 8
-    [7000, 5000, 0, 2, 2500]    # Candidato 9
+    [7000, 5000, 0, 2, 2500],    # Candidato 9
+     [10000, 5000, 1, 0, 2500]    # Candidato 10
 ]
 
 # Fazer previsões
